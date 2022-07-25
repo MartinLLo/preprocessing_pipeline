@@ -1,22 +1,27 @@
 # preprocessing_pipeline
 
-preprocessing_pipeline is a series of scripts that takes a [DICOM] (https://www.dicomstandard.org/about/) dataset and generates a series of 
+The preprocessing_pipeline is a series of scripts written in Python3 that sorts and thresholds [DICOM](https://www.dicomstandard.org/about/) datasets to produce a number of relevant file formats that could be used for machine learning, 2D/3D image analysis, or 3D modelling work.
 
+## How it works
+THe first script 'Dataset sorting and extraction' takes DICOM images as input and sorts them into folders according to the series numbers denoted in the file metadata.
 
-# Required Packages
+The second script 'Noise removal and segmentation', removes undesired structures such as the sliding gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed.
 
-The scripts are written in Python 3
+The third script 'Thresholding for tissues of interest', passes DICOM files through thresholding functions to produce 2D images in PNG and JPEG formats.
 
+The fourth script 'Conversion to NIfTI format', aligns and converts DICOM files into single NIfTI files.
 
-External Packages
-> pip install pydicom
-
-
-
-
+The fifth script 'Conversion to Stereolithography format', converts the thresholded and processed DICOM files into STL format using VTK.
 
 
 
-# How it works
+## Required Packages
+The collection of scripts is written in Python and will require the following packages
+- matplotlib
+- numpy
+- os
+- pydicom
+- scipy
+- skimage
+- VTK
 
-First the script reads ---> 
