@@ -5,7 +5,7 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts 
 ## How it works
 THe first script 'Dataset sorting and extraction' takes DICOM images as input and sorts them into folders according to the series numbers denoted in the file metadata.
 
-The second script 'Noise removal and segmentation', removes undesired structures such as the sliding gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed.
+The second script 'Noise removal and segmentation', removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed.
 
 The third script 'Thresholding for tissues of interest', passes DICOM files through thresholding functions to produce 2D images in PNG and JPEG formats.
 
