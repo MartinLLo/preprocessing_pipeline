@@ -30,7 +30,7 @@ def delete_series(directory, series_number):
     lst = []   
     
     for file in file_list[:]:
-        if pydicom.dcmread(file).SeriesNumber == 1:
+        if pydicom.dcmread(file).SeriesNumber == series_number:
             print('yes')
             x = os.path.abspath(file) + ' is a topogram and will be removed'
             lst.append(x)
