@@ -3,7 +3,7 @@
 The preprocessing_pipeline is a series of scripts written in Python3 that sorts and thresholds [DICOM](https://www.dicomstandard.org/about/) datasets to produce a number of relevant file formats that could be used for machine learning, 2D/3D image analysis, or 3D modelling work.
 
 ## How it works
-The first series of scripts in S1-Sort takes DICOM images as input and sorts them into folders according to the series numbers denoted in the file metadata, and also checks for corrupted files that would interrupt the processes in the following sections of the pipeline.
+The first series of scripts in S1-Sort/Organise first checks for corrupted files and non-DICOM images and deletes them from the dataset, this is so that the processes in the following sections of the pipeline are not interrupted. Then it takes DICOM images as input and sorts them into folders according to the series numbers denoted in the file metadata.
 
 The second series of scripts in S2-Removenoise, removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed.
 
@@ -26,4 +26,3 @@ The collection of scripts is written in Python and will require the following pa
 - dicom2nifti
 - Nibabel
 - VTK
-
