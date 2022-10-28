@@ -8,14 +8,16 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts 
     - S1.2-sort.py: checks the metadata of each DICOM file and sorts them into folders according to the series denoted in the file metadata, this script is optional    depending on your desired ouputs or intent. If separating scan series from each other is unecessary then this script can be skipped.
     - S1.3-delete_series.py: deletes DICOM files using the series number provided in the metadata. This script is optional depending on your intent. If you know the series number of what needs to be deleted, S1.2 can be skipped and this script can be run instead. 
 
-The second series of scripts in S2-Removenoise, removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
+2) The second series of scripts in S2-Removenoise, removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
 
-The third script in S3-DCM2IMG, passes DICOM files through thresholding functions to produce 2D images in PNG and JPEG formats.
+3) The third script in S3-DCM2IMG, passes DICOM files through thresholding functions to produce 2D images in PNG and JPEG formats.
 
-The fourth script 'DCM2NIFTI', aligns and converts DICOM files into single NIfTI files.
+4) The fourth script 'DCM2NIFTI', aligns and converts DICOM files into single NIfTI files.
+    - S4.1-DICOM2NIFTI.py: converts the entire dataset by aligning DICOM files within their respective directories into single NIfTI files
+    - S4.2-MOVENIFTI.py: moves the NIfTI files created and renamed according to subdirectory headings to a new and separate folder.
 
-The fifth script 'DCM2STL', converts the thresholded and processed DICOM files into STL format using VTK.
-
+5) The fifth script 'DCM2STL', converts the thresholded and processed DICOM files into STL format using VTK.
+    - S5.1-DICOM2STL.py: converts the scan series into .stl files
 
 
 ## Required Packages
