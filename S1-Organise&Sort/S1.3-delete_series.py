@@ -43,8 +43,3 @@ def delete_series(directory, series_number):
     et = time.time()
     elapsed_time = et - st
     print('Script took:', elapsed_time, 'seconds')
-    
-
-directory = r'C:\Users\m3lo4\OneDrive\UCL\PhD\Practice_Data\Bugfixing'   
- 
-delete_series(directory, 1)
