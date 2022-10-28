@@ -23,6 +23,7 @@ The collection of scripts is written in Python and will require the following pa
 - pydicom
 - scipy
 - skimage
+- dicom2nifti
 - Nibabel
 - VTK
 
