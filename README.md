@@ -9,7 +9,7 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts,
     - S1.3-delete_series.py: deletes DICOM files using the series number provided in the metadata. This script is optional depending on your intent. If you know the series number of what needs to be deleted, S1.2 can be skipped and this script can be run instead. 
 
 2) S2-Removenoise
-    - S2-Removenoise.py: removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
+    - S2-removenoise.py: removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
 
 3) S3-DCM2IMG
     - S3-DICOM2IMG.py: converts the processed DICOM image files processed through S2-Removenoise or not into thresholded PNG or JPEG files.
@@ -34,9 +34,9 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts,
                                          Air --> -1000
                 - **img_format:** _the image extension of your output file_                  
                     
-                    If portable network graphics files are needed, simply enter png
+                    If portable network graphics files are needed, simply enter 'png'
                     
-                    If Joint Photographic Experts Group files are needed, simply enter jpeg
+                    If Joint Photographic Experts Group files are needed, simply enter 'jpeg'
 
 4) S4-DCM2NIFTI
     - S4.1-DICOM2NIFTI.py: converts the DICOM dataset or the processed dataset from S2-Removenoise into NIfTI files.
