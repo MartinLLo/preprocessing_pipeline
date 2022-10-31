@@ -20,7 +20,7 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts 
     - S4.2-MOVENIFTI.py: moves the NIfTI files created and renamed according to subdirectory headings to a new and separate subdirectory exclusively.
 
 5) S5-DCM2STL
-    - S5-DICOM2STL.py: converts the processed scan series from S2-Removenoise into .stl files
+    - S5-DICOM2STL.py: converts the processed scan series from S2-Removenoise into STL files
 
 ## Required Packages
 The collection of scripts is written in Python and will require the following packages
