@@ -12,15 +12,15 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts 
     - S2-Removenoise.py: removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
 
 3) S3-DCM2IMG
-    - S3-DICOM2IMG.py: converts the processed DICOM image files from S2-Removenoise into thresholded PNG or JPEG files.
-    
+    - S3.1-DICOM2PNG.py: converts the processed DICOM image files from S2-Removenoise into thresholded PNG files.
+    - S3.2-DICOM2JPEG.py: converts the processed DICOM image files from S2-Removenoise into thresholded JPEG files.
+
 4) S4-DCM2NIFTI
     - S4.1-DICOM2NIFTI.py: converts the DICOM dataset or the processed dataset from S2-Removenoise into NIfTI files.
     - S4.2-MOVENIFTI.py: moves the NIfTI files created and renamed according to subdirectory headings to a new and separate subdirectory.
 
 5) S5-DCM2STL
     - S5-DICOM2STL.py: converts the processed scan series from S2-Removenoise into .stl files
-
 
 ## Required Packages
 The collection of scripts is written in Python and will require the following packages
