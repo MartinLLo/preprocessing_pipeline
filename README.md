@@ -12,8 +12,31 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts 
     - S2-Removenoise.py: removes undesired structures such as the sliding bed that does into the CT gantry. A mask of the tissues of ineterest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
 
 3) S3-DCM2IMG
-    - S3.1-DICOM2PNG.py: converts the processed DICOM image files from S2-Removenoise into thresholded PNG files.
-    - S3.2-DICOM2JPEG.py: converts the processed DICOM image files from S2-Removenoise into thresholded JPEG files.
+    - S3DICOM2IMG.py: converts the processed DICOM image files processed through S2-Removenoise or not into thresholded PNG or JPEG files.
+        - DICOM2IMG(pwd, threshold_value_1, threshold_value_2,  img_format)
+            - Parameters:
+                - **pwd:** _present working directory_
+                
+                    Path to your directory holding the DICOM files you want to threshold and save as PNG or JPEG files
+                - **threshold_value_1:** _lower bound of the HU threshold value_
+                - **threshold_value_2:** _upper bound of the HU threshold value_                   
+                    
+                                    Common thresholding values:
+
+                                         Bone --> 400, 1000
+
+                                         Soft tissue --> 40, 80
+
+                                         Water --> 0, 0
+
+                                         Fat --> -60, -100
+
+                                         Air --> -1000
+                - **img_format:** _the image extension of your output file_                  
+                    
+                    If portable network graphics files are needed, simply enter png
+                    
+                    If Joint Photographic Experts Group files are needed, simply enter jpeg
 
 4) S4-DCM2NIFTI
     - S4.1-DICOM2NIFTI.py: converts the DICOM dataset or the processed dataset from S2-Removenoise into NIfTI files.
