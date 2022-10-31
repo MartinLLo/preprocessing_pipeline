@@ -97,4 +97,3 @@ def DCM2IMG(pwd, window_center, window_width, img_format, display = False):
     return thresholded
 # # plt.imshow(thresholded, cmap = 'gray')
 # mpimg.imsave(test + '.png', thresholded, cmap = 'gray')
-DCM2IMG(pwd, 400, 1000, 'jpeg')
