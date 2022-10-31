@@ -2,9 +2,16 @@
 """
 @author: martin lo
 
-S3-DICIOM2IMG_PNG
+S3-DICIOM2IMG
 
-Converting DICOM to thresholded PNG
+Convert DICOM to thresholded PNG or JPEG
+Threshold by entering the lower and upper thresholds required
+Common thresholding values include:
+    Bone --> 400, 1000
+    Soft tissue --> 40, 80
+    Water --> 0, 0
+    Fat --> -60, -100
+    Air --> -1000
 
 """
 # Packages required
@@ -97,3 +104,4 @@ def DCM2IMG(pwd, window_center, window_width, img_format, display = False):
     return thresholded
 # # plt.imshow(thresholded, cmap = 'gray')
 # mpimg.imsave(test + '.png', thresholded, cmap = 'gray')
+DCM2IMG(pwd, 400, 1000, 'jpeg')
