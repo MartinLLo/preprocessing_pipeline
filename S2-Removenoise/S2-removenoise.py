@@ -18,14 +18,7 @@ from skimage import morphology
 
 # Functions required
 def transform_to_hu(medical_image, image):
-    try:
-        intercept = medical_image.RescaleIntercept
-    except AttributeError:
-        with open("rinterceptc.txt", "a") as rintercept_file:
-            rintercept_file.write(str(os.path.abspath(medical_image))+'\n')
-            print(os.path.abspath(medical_image) + ' does not have rescale intercept')
-        rintercept_file.close()
-        pass
+    intercept = medical_image.RescaleIntercept
     slope = medical_image.RescaleSlope
     hu_image = image * slope + intercept
 
@@ -123,7 +116,7 @@ def boolean_masking(file_path, display=False):
         CTimg.save_as(path)
         print('out of the bool mask')
     except AttributeError:
-        with open("corruptedc.txt", "a") as corrupt_file:
+        with open("corrupted.txt", "a") as corrupt_file:
             corrupt_file.write(str(file_path)+'\n')
             print(file_path + ' might be corrupted/ cannot be processed')
         corrupt_file.close()
@@ -146,7 +139,7 @@ def is_dicom_image(file: str) -> bool:
         img.pixel_array
         result = True
     except (AttributeError, TypeError, KeyError):
-        with open("notproperc.txt", "a") as proper_file: 
+        with open("notproper.txt", "a") as proper_file: 
             proper_file.write(str(file)+'\n')  
             print(file + ' is not a proper DICOM file')
         proper_file.close()
@@ -160,24 +153,16 @@ file_list = list()
 file_notdcm = list()
 path_list = list()
 
-with open("testingprintsavec.txt", "w") as test_file:
-    # i=0 
-    for root, dirs, files in os.walk(pwd):
-        # i+=1
-        # if i ==10:
-        #    break
-        for name in files:
-            if name.lower().endswith('.dcm'):
-                file_list.append(os.path.join(root, name))
-                #print(file_list)
-            else:
-                file_notdcm.append(os.path.join(root,name))
-                # print(file_notdcm)
-        test_file.write(str(file_list).replace(',','\n').replace('[','').replace(']','').replace("'","").replace(' ',''))
-test_file.close()
-print(len(file_list), file_list[0])
-print(len(file_list), file_list[1])
-print(len(file_list), file_list[-1])      
+for root, dirs, files in os.walk(pwd):
+    for name in files:
+        if name.lower().endswith('.dcm'):
+            file_list.append(os.path.join(root, name))
+            #print(file_list)
+        else:
+            file_notdcm.append(os.path.join(root,name))
+            # print(file_notdcm)     
+            
+print(file_list)
 # Removes dcm files that do not have metadata and will cause the boolean masking loop to interrupt
 # from the list of paths which will be passed through the boolean_masking function
 for path in file_list:
@@ -187,12 +172,12 @@ for path in file_list:
 print(path_list)
 # Does the boolean masking and removes the bed
 for path in path_list[:]:
-     # file_size = os.path.getsize(path)
-     # if file_size == 0:
-     #     continue
-     # else:
-         boolean_masking(path)
- #prints path done
-         #print(path + ' done')
+      # file_size = os.path.getsize(path)
+      # if file_size == 0:
+      #     continue
+      # else:
+          boolean_masking(path)
+  #prints path done
+          #print(path + ' done')
 print(path_list)
   	
