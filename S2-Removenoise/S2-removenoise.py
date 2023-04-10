@@ -5,7 +5,7 @@
 Created on Fri May 20 11:42:30 2022
 
 Saving the boolean'd array as pixel_array and pixeldata on the dcm itself
-For loop allows the whole directory to be processed
+For loop allows all DCMs in the directory to be processed
 
 """
 # Packages required
