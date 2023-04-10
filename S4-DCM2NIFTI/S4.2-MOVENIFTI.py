@@ -13,8 +13,12 @@ import shutil
 pwd = os.getcwd()
 
 sourcelist = []
-nifti_dir = pwd + os.path.join(os.sep + 'UCLH_DATA' + os.sep + 'UCLH_NIFTI' + os.sep)
 
+# edit the nifti_dir as needed
+nifti_dir = pwd + os.path.join(os.sep + 'nifti_models' + os.sep)
+isExist = os.path.exists(nifti_dir)
+if not isExist:
+    os.makedirs(nifti_dir)
 print(pwd)
 print(nifti_dir)
 
