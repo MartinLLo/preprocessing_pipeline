@@ -43,8 +43,8 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts,
     - S4.2-MOVENIFTI.py: moves the NIfTI files created and renamed according to subdirectory headings to a new and separate subdirectory exclusively.
 
 5) S5-DCM2STL
-    - S5-DICOM2STL.py: converts the DICOM image files or processed DICOM image files processed through S2-Removenoise  into STL files
-
+    - S5.1-DICOM2STL.py: converts and thresholds the DICOM image files processed through S2-Removenoise or unprocessed DICOM image files into STL files
+    - S5.2-MOVENIFTI.py: moves the stl files created and renamed according to subdirectory headings to a new and separate subdirectory exclusively.
 ## Required Packages
 The collection of scripts is written in Python and will require the following packages
 - matplotlib
