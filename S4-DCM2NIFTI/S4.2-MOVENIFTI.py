@@ -4,7 +4,7 @@ S4.2 MOVENIFTI.py
 
 This script moves all the nifti files made from DICOM2NIFTI.py to a designated directory - UCLH_NIFTI
 
-@author: m3lo4
+@author: martin lo
 """
 
 import os
