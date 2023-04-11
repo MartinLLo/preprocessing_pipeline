@@ -61,8 +61,6 @@ for dirs in dicom_dir:
     threshold.ReplaceOutOn()
     threshold.SetOutValue(1)  # set all values above 400 to 1
     threshold.Update()
-    # Saving the thresholded array into a variable
-    ArrayDicom = vtkImageToNumPy(threshold.GetOutput(), ConstPixelDims)
 
     ## Use the `vtkDiscreteMarchingCubes` class to extract the surface
     dmc = vtk.vtkDiscreteMarchingCubes()
