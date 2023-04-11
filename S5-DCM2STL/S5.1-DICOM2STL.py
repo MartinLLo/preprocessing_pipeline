@@ -43,13 +43,8 @@ for dirs in dicom_dir:
     reader.SetDirectoryName(dirs)
     reader.Update()
 
-    ## Loading dimensions using `GetDataExtent`
-    _extent = reader.GetDataExtent()
-    ConstPixelDims = [_extent[1]-_extent[0]+1, _extent[3]-_extent[2]+1, _extent[5]-_extent[4]+1]
-
     ## Loading pixel spacing values
     ConstPixelSpacing = reader.GetPixelSpacing()
-    
 
     ## Use the vtkImageThreshold() to clean remaining soft-tissue from the image data after S2.1 Removenoise.py
     # change the thresholding value as needed
