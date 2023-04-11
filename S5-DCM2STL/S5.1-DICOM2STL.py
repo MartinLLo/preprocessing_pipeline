@@ -11,16 +11,6 @@ from vtk.util import numpy_support
 import os
 import re
 
-# This function converts a `vtkImageData` array to a `numpy.ndarray`
-
-def vtkImageToNumPy(image, pixelDims):
-    pointData = image.GetPointData()
-    arrayData = pointData.GetArray(0)
-    ArrayDicom = numpy_support.vtk_to_numpy(arrayData)
-    ArrayDicom = ArrayDicom.reshape(pixelDims, order='F')
-    
-    return ArrayDicom
-
 ## Loading the DICOM data
 pwd = os.getcwd()
 # print(pwd)
