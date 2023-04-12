@@ -195,5 +195,5 @@ for path in file_list:
         path_list.append(path)
 print(path_list[:5])
 # Boolean masking to get rid of the bed, concurrent.futures allows the process to be carried out in parallel
-with concurrent.futures.ProcessPoolExecutor() as executor:
+with concurrent.futures.ProcessPoolExecutor(max_workers = max) as executor:
      executor.map(boolean_masking, path_list)
