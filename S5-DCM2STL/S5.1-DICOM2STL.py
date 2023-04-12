@@ -7,7 +7,6 @@ The adaptations to the original code makes it so that the creation of the STL fi
 """
 
 import vtk
-from vtk.util import numpy_support
 import os
 import re
 
@@ -57,17 +56,18 @@ for dirs in dicom_dir:
     mapper.SetInputConnection(dmc.GetOutputPort())
     
     ## creating stl filename
-    # replace 'UCL_' with directory/individual identifier of choice]
-    y = (re.search('UCL_', dirs).span())
-    UCL_index = y[0]
-    print(UCL_index)
-    new_name = dirs[UCL_index:]
+    # replace 'substring_index' with directory/individual identifier of choice]
+    y = (re.search('substring_index', dirs).span())
+    substring_index = y[0]
+    print(substring_index)
+    new_name = dirs[substring_index:]
     stl_name = str(new_name.replace('\\', "_"))
-    print(stl_name)
+    stl_name2 = str(new_name.replace('', "_"))
+    print(stl_name2)
 
     ## Writing the extracted surface as an .stl file
     writer = vtk.vtkSTLWriter()
     writer.SetInputConnection(dmc.GetOutputPort())
     writer.SetFileTypeToBinary()
-    writer.SetFileName(stl_name +".stl")
+    writer.SetFileName(stl_name2 +".stl")
     writer.Write()
