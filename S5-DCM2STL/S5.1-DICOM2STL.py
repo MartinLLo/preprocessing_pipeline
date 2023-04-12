@@ -15,6 +15,7 @@ pwd = os.getcwd()
 # print(pwd)
 full_dir = []
 dicom_dir = []
+dcm_dir = []
 
 ## all the folders in pwd
 for root, dirs, files in os.walk(pwd):
@@ -27,7 +28,19 @@ for path in full_dir:
         dicom_dir.append(full_dir.pop(full_dir.index(path)))
 print(len(dicom_dir))
 
-for dirs in dicom_dir:
+## finds any directory/subdirectory containing .dcm files
+for root, dirs, files in os.walk(pwd):
+    for item in files:
+        if item.lower().endswith('.dcm'):
+            x = os.path.join(root, item)
+            y = os.path.basename(item)
+            z = x.replace(str(y), '')
+            dcm_dir.append(z)
+dcm_dir = list(set(dcm_dir))
+print(dcm_dir)
+print(len(dcm_dir))
+
+for dirs in dcm_dir:
     reader = vtk.vtkDICOMImageReader()
     reader.SetDirectoryName(dirs)
     reader.Update()
