@@ -10,6 +10,7 @@ The preprocessing_pipeline is a series of scripts written in Python3 that sorts,
 
 2) S2-Removenoise
     - S2-removenoise.py: removes undesired structures such as the sliding bed that does into the CT gantry or other biological structures using thresholding. A mask of the tissues of interest is detected and preserved while the surrounding material/tissues are overwritten and removed. The script also has similar functions to script 1.1 where corrupted and non-DICOM images are filtered out.
+    - S2-removenoise-MP.py: is the multi-processing version of S2-removenoise.py. It uses concurrent.futures to run the process on a designated number of processors available on your computing device. The number of processors used can be changed in the script to suit your hardware specifications.
 
 3) S3-DCM2IMG
     - S3-DICOM2IMG.py: converts the DICOM image files or processed DICOM image files processed through S2-Removenoise thresholded PNG or JPEG files.
